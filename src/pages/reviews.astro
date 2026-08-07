@@ -2,9 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 
 const reviews = [
-  { name: 'Client Name', rating: 5, text: 'Placeholder testimonial — replace with a real review once you have one to share.' },
-  { name: 'Client Name', rating: 5, text: 'Placeholder testimonial — replace with a real review once you have one to share.' },
-  { name: 'Client Name', rating: 5, text: 'Placeholder testimonial — replace with a real review once you have one to share.' },
+  { name: 'Client Name', rating: 5, text: 'Placeholder testimonial: replace with a real review once you have one to share.' },
+  { name: 'Client Name', rating: 5, text: 'Placeholder testimonial: replace with a real review once you have one to share.' },
+  { name: 'Client Name', rating: 5, text: 'Placeholder testimonial: replace with a real review once you have one to share.' },
 ];
 ---
 <Layout title="Reviews">
@@ -20,7 +20,7 @@ const reviews = [
         <div class="border border-white/20 rounded-2xl p-7">
           <div class="text-white mb-3">{'★'.repeat(r.rating)}{'☆'.repeat(5 - r.rating)}</div>
           <p class="text-white/85 text-sm leading-relaxed mb-4">"{r.text}"</p>
-          <p class="text-white/60 text-sm">— {r.name}</p>
+          <p class="text-white/60 text-sm">By {r.name}</p>
         </div>
       ))}
     </div>
@@ -34,8 +34,8 @@ const reviews = [
       </p>
 
       <!--
-        Formspree form — submissions land in your inbox for approval before
-        you manually add them to the "reviews" list above.
+        Formspree form. Submissions land in your inbox for approval before
+        you manually add them to the reviews list above.
         1. Sign up free at formspree.io
         2. Create a form, copy your form ID
         3. Replace YOUR_FORM_ID below
