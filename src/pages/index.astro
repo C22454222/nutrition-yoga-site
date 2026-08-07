@@ -1,0 +1,75 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Home">
+  <section class="min-h-[85vh] flex items-center justify-center px-6 py-20 text-center">
+    <div class="max-w-3xl">
+      <p class="uppercase tracking-[0.3em] text-sm text-white/70 mb-6">Nutrition &amp; Yoga</p>
+      <h1 class="text-4xl md:text-6xl leading-tight mb-8">
+        Transform Your Health<br class="hidden md:block" /> From The Inside Out
+      </h1>
+      <div class="mx-auto my-8 h-px w-16 bg-white/50"></div>
+      <p class="text-lg md:text-xl text-white/85 max-w-2xl mx-auto leading-relaxed mb-10">
+        I'm Leah, a Registered Nutritionist and Yoga Instructor. I help people build calm,
+        sustainable habits around food and movement, without extremes, rules, or guesswork.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="/services" class="bg-white text-terra-600 px-7 py-3 rounded-full hover:bg-cream-100 transition font-medium">
+          Book a Free Discovery Call
+        </a>
+        <a href="/about" class="border border-white/60 px-7 py-3 rounded-full hover:bg-white/10 transition font-medium">
+          Learn More About Me
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-white/15">
+    <div class="max-w-5xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
+      <div class="aspect-[4/5] rounded-2xl border border-white/25 flex items-center justify-center text-white/50 text-sm uppercase tracking-wide">
+        Lifestyle photo
+      </div>
+      <div>
+        <p class="uppercase tracking-[0.25em] text-sm text-white/60 mb-4">Two disciplines, one approach</p>
+        <h2 class="text-3xl mb-5">Nutrition and yoga, working together</h2>
+        <p class="text-white/85 leading-relaxed mb-4">
+          Food and movement aren't separate parts of health - they're connected. I bring both
+          into one calm, evidence-based approach so you're supported from every angle.
+        </p>
+        <p class="text-white/85 leading-relaxed">
+          Whether you're here for one-to-one coaching, a private yoga session, or both, everything
+          is built around what actually fits your life.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-white/15">
+    <div class="max-w-6xl mx-auto px-6 py-20">
+      <h2 class="text-3xl text-center mb-14">What I Offer</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <a href="/nutrition" class="border border-white/20 rounded-2xl p-8 text-center hover:bg-white/5 transition block">
+          <div class="aspect-square rounded-xl border border-white/20 flex items-center justify-center text-white/40 text-xs uppercase tracking-wide mb-6">
+            Nutrition consultation
+          </div>
+          <h3 class="text-xl mb-2">Nutrition Coaching</h3>
+          <p class="text-white/75 text-sm">Personalised, practical plans grounded in evidence.</p>
+        </a>
+        <a href="/yoga" class="border border-white/20 rounded-2xl p-8 text-center hover:bg-white/5 transition block">
+          <div class="aspect-square rounded-xl border border-white/20 flex items-center justify-center text-white/40 text-xs uppercase tracking-wide mb-6">
+            Yoga teaching
+          </div>
+          <h3 class="text-xl mb-2">1:1 &amp; Group Yoga</h3>
+          <p class="text-white/75 text-sm">Mindful movement tailored to your body and goals.</p>
+        </a>
+        <a href="/services" class="border border-white/20 rounded-2xl p-8 text-center hover:bg-white/5 transition block">
+          <div class="aspect-square rounded-xl border border-white/20 flex items-center justify-center text-white/40 text-xs uppercase tracking-wide mb-6">
+            Coaching session
+          </div>
+          <h3 class="text-xl mb-2">Coaching Packages</h3>
+          <p class="text-white/75 text-sm">From a free discovery call to ongoing accountability.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

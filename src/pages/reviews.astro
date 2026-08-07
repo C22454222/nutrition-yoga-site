@@ -1,0 +1,64 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const reviews = [
+  { name: 'Client Name', rating: 5, text: 'Placeholder testimonial — replace with a real review once you have one to share.' },
+  { name: 'Client Name', rating: 5, text: 'Placeholder testimonial — replace with a real review once you have one to share.' },
+  { name: 'Client Name', rating: 5, text: 'Placeholder testimonial — replace with a real review once you have one to share.' },
+];
+---
+<Layout title="Reviews">
+  <section class="max-w-3xl mx-auto px-6 pt-24 pb-14 text-center">
+    <p class="uppercase tracking-[0.25em] text-sm text-white/60 mb-4">Reviews</p>
+    <h1 class="text-4xl mb-6">What Clients Say</h1>
+    <p class="text-white/85">Real feedback from people I've worked with.</p>
+  </section>
+
+  <section class="max-w-5xl mx-auto px-6 pb-20">
+    <div class="grid md:grid-cols-3 gap-6">
+      {reviews.map((r) => (
+        <div class="border border-white/20 rounded-2xl p-7">
+          <div class="text-white mb-3">{'★'.repeat(r.rating)}{'☆'.repeat(5 - r.rating)}</div>
+          <p class="text-white/85 text-sm leading-relaxed mb-4">"{r.text}"</p>
+          <p class="text-white/60 text-sm">— {r.name}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="border-t border-white/15">
+    <div class="max-w-xl mx-auto px-6 py-20">
+      <h2 class="text-2xl mb-3 text-center">Leave a Review</h2>
+      <p class="text-white/70 text-sm text-center mb-8">
+        Submitted reviews are checked before they're published on this page.
+      </p>
+
+      <!--
+        Formspree form — submissions land in your inbox for approval before
+        you manually add them to the "reviews" list above.
+        1. Sign up free at formspree.io
+        2. Create a form, copy your form ID
+        3. Replace YOUR_FORM_ID below
+      -->
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-4">
+        <input type="text" name="name" placeholder="Your name" required
+          class="w-full border border-white/25 bg-white/5 rounded-lg px-4 py-2 text-white placeholder-white/50" />
+        <select name="rating" required
+          class="w-full border border-white/25 bg-white/5 rounded-lg px-4 py-2 text-white">
+          <option value="" class="text-terra-900">Rating</option>
+          <option value="5" class="text-terra-900">★★★★★</option>
+          <option value="4" class="text-terra-900">★★★★</option>
+          <option value="3" class="text-terra-900">★★★</option>
+          <option value="2" class="text-terra-900">★★</option>
+          <option value="1" class="text-terra-900">★</option>
+        </select>
+        <textarea name="review" placeholder="Your review" rows="5" required
+          class="w-full border border-white/25 bg-white/5 rounded-lg px-4 py-2 text-white placeholder-white/50"></textarea>
+        <button type="submit"
+          class="w-full bg-white text-terra-600 py-2 rounded-full hover:bg-cream-100 transition font-medium">
+          Submit Review
+        </button>
+      </form>
+    </div>
+  </section>
+</Layout>

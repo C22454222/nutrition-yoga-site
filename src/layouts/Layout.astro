@@ -1,0 +1,97 @@
+---
+import '../styles/global.css';
+
+const {
+  title = 'Leah Kanellos - Registered Nutritionist & Yoga Instructor',
+  description = 'Transform your health from the inside out. Personalised nutrition coaching and yoga with Leah Kanellos.'
+} = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+</head>
+<body>
+  <header class="border-b border-white/15 sticky top-0 bg-terra-500/95 backdrop-blur-sm z-50">
+    <nav class="max-w-6xl mx-auto flex items-center justify-between px-6 py-5">
+      <a href="/" class="text-2xl md:text-[1.7rem] tracking-wide font-display text-white">
+        Leah Kanellos
+      </a>
+      <div class="hidden md:flex gap-7 text-sm tracking-wide uppercase">
+        <a href="/about" class="hover:opacity-70 transition">About</a>
+        <a href="/nutrition" class="hover:opacity-70 transition">Nutrition</a>
+        <a href="/yoga" class="hover:opacity-70 transition">Yoga</a>
+        <a href="/services" class="hover:opacity-70 transition">Services</a>
+        <a href="/reviews" class="hover:opacity-70 transition">Reviews</a>
+        <a href="/contact" class="hover:opacity-70 transition">Contact</a>
+      </div>
+      <a href="/contact" class="md:hidden text-sm uppercase tracking-wide underline">Menu</a>
+    </nav>
+  </header>
+
+  <main>
+    <slot />
+  </main>
+
+  <footer class="border-t border-white/15 mt-24">
+    <div class="max-w-6xl mx-auto px-6 py-14 grid md:grid-cols-3 gap-10 text-sm">
+      <div>
+        <p class="font-display text-xl mb-3">Leah Kanellos</p>
+        <p class="text-white/75 leading-relaxed mb-4">
+          Registered Nutritionist & Yoga Instructor.<br />
+          Evidence-based nutrition, meets calm, mindful movement.
+        </p>
+        <div class="flex items-center gap-4">
+          <img src="/images/ryt-500.jpeg" alt="RYT 500 Registered Yoga Teacher, Yoga Alliance" class="w-14 h-14 rounded-full bg-white p-0.5" />
+          <img src="/images/anutr.png" alt="AfN ANutr Registered Associate Nutritionist" class="h-11 bg-white rounded p-1.5" />
+        </div>
+      </div>
+
+      <div>
+        <p class="uppercase tracking-wide text-white/60 mb-3">Get in touch</p>
+        <ul class="space-y-2 text-white/85">
+          <li>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=leahkanellos10@gmail.com" target="_blank" rel="noopener" class="hover:opacity-70 transition flex items-center gap-2">
+              <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+              leahkanellos10@gmail.com
+            </a>
+          </li>
+          <li>
+            <a href="https://wa.me/447883125933" target="_blank" rel="noopener" class="hover:opacity-70 transition flex items-center gap-2">
+              <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.3a8.9 8.9 0 0 0-14.1 10.7L2 22l5.1-1.4A8.9 8.9 0 0 0 20.9 12a8.8 8.8 0 0 0-3.3-5.7Zm-5.6 13.6a7.4 7.4 0 0 1-3.8-1l-.3-.2-2.8.8.8-2.7-.2-.3a7.4 7.4 0 1 1 6.3 3.4Zm4-5.5c-.2-.1-1.3-.7-1.5-.7-.2-.1-.4-.1-.5.1-.2.2-.6.7-.7.9-.1.1-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.6c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.5 3.9 3.5.5.2 1 .4 1.3.5.5.2 1 .1 1.4.1.4-.1 1.3-.5 1.5-1 .2-.5.2-.9.1-1l-.4-.2Z"/></svg>
+              WhatsApp: +44 7883 125933
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="uppercase tracking-wide text-white/60 mb-3">Follow</p>
+        <ul class="space-y-2 text-white/85">
+          <li>
+            <a href="https://www.instagram.com/leahkanellos" target="_blank" rel="noopener" class="hover:opacity-70 transition flex items-center gap-2">
+              <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+              Instagram
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/leah-kanellos-anutr-49b092278" target="_blank" rel="noopener" class="hover:opacity-70 transition flex items-center gap-2">
+              <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.55 4.78 5.87V21h-4v-5.6c0-1.34-.03-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.96V21h-4V9Z"/></svg>
+              LinkedIn
+            </a>
+          </li>
+          <li><a href="/links" class="hover:opacity-70 transition">Link-in-bio page</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-white/10 py-6 text-center text-xs text-white/60 px-6">
+      <p>&copy; {new Date().getFullYear()} Leah Kanellos. Registered Nutritionist. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

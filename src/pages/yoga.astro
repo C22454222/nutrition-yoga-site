@@ -1,0 +1,50 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const offerings = [
+  { title: '1:1 Yoga', desc: 'Private sessions tailored entirely to your body, goals, and experience level — in person or online.' },
+  { title: 'Group Classes', desc: 'Small, welcoming group sessions. All levels welcome, no experience necessary.' },
+  { title: 'Group / Studio Hire', desc: 'Book a private group session for friends, colleagues, or a special occasion.' },
+];
+---
+<Layout title="Yoga">
+  <section class="max-w-5xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-14 items-center">
+    <div class="aspect-[4/5] rounded-2xl border border-white/25 flex items-center justify-center text-white/50 text-sm uppercase tracking-wide">
+      Yoga teaching
+    </div>
+    <div>
+      <p class="uppercase tracking-[0.25em] text-sm text-white/60 mb-4">Yoga</p>
+      <h1 class="text-4xl mb-6">Mindful movement, at your own pace</h1>
+      <p class="text-white/85 leading-relaxed mb-4">
+        My yoga teaching focuses on calm, sustainable movement — helping you build strength,
+        flexibility, and body awareness without pressure or comparison.
+      </p>
+      <p class="text-white/85 leading-relaxed">
+        [Space for more on your yoga style, training background, and what a session looks like.]
+      </p>
+    </div>
+  </section>
+
+  <section class="border-t border-white/15">
+    <div class="max-w-5xl mx-auto px-6 py-20">
+      <h2 class="text-3xl text-center mb-14">Yoga Offerings</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        {offerings.map((o) => (
+          <div class="border border-white/20 rounded-2xl p-8 text-center">
+            <h3 class="text-xl mb-3">{o.title}</h3>
+            <p class="text-white/80 text-sm leading-relaxed">{o.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-white/15">
+    <div class="max-w-3xl mx-auto px-6 py-20 text-center">
+      <h2 class="text-3xl mb-6">Join a class or book privately</h2>
+      <a href="/contact" class="inline-block bg-white text-terra-600 px-7 py-3 rounded-full hover:bg-cream-100 transition font-medium">
+        Get In Touch
+      </a>
+    </div>
+  </section>
+</Layout>

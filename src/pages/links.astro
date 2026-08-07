@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const links = [
+  { label: 'Book a Yoga Class', href: '/yoga' },
+  { label: 'Nutrition Coaching', href: '/nutrition' },
+  { label: '1:1 Coaching', href: '/services' },
+  { label: 'Group Programmes', href: '/yoga' },
+  { label: 'Book a Discovery Call', href: '/services' },
+  { label: 'My Website', href: '/' },
+  { label: 'Instagram', href: 'https://instagram.com' },
+  { label: 'LinkedIn', href: 'https://linkedin.com' },
+  { label: 'Contact Me', href: '/contact' },
+];
+---
+<Layout title="Links">
+  <section class="min-h-screen flex items-center justify-center px-6 py-16">
+    <div class="w-full max-w-sm text-center">
+      <div class="w-24 h-24 rounded-full border border-white/30 mx-auto mb-6 flex items-center justify-center text-white/50 text-xs uppercase tracking-wide">
+        Photo
+      </div>
+      <h1 class="text-2xl font-display mb-2">Leah Kanellos</h1>
+      <p class="text-white/75 text-sm mb-10">Registered Nutritionist &amp; Yoga Instructor</p>
+
+      <div class="space-y-3">
+        {links.map((l) => (
+          
+            href={l.href}
+            target={l.href.startsWith('http') ? '_blank' : undefined}
+            rel={l.href.startsWith('http') ? 'noopener' : undefined}
+            class="block border border-white/30 rounded-full py-3 px-6 text-sm hover:bg-white/10 transition"
+          >
+            {l.label}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
