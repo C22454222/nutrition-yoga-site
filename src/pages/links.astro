@@ -11,9 +11,12 @@ const links = [
   { label: 'Instagram', href: 'https://instagram.com' },
   { label: 'LinkedIn', href: 'https://linkedin.com' },
   { label: 'Contact Me', href: '/contact' },
-];
+].map((l) => ({
+  ...l,
+  isExternal: l.href.startsWith('http'),
+}));
 ---
-<Layout title="Links">
+<Layout title="Leah Kanellos — Links">
   <section class="min-h-screen flex items-center justify-center px-6 py-16">
     <div class="w-full max-w-sm text-center">
       <div class="w-24 h-24 rounded-full border border-white/30 mx-auto mb-6 flex items-center justify-center text-white/50 text-xs uppercase tracking-wide">
@@ -24,14 +27,15 @@ const links = [
 
       <div class="space-y-3">
         {links.map((l) => (
-          
-            href={l.href}
-            target={l.href.startsWith('http') ? '_blank' : undefined}
-            rel={l.href.startsWith('http') ? 'noopener' : undefined}
-            class="block border border-white/30 rounded-full py-3 px-6 text-sm hover:bg-white/10 transition"
-          >
-            {l.label}
-          </a>
+          l.isExternal ? (
+            <a href={l.href} target="_blank" rel="noopener" class="block border border-white/30 rounded-full py-3 px-6 text-sm hover:bg-white/10 transition">
+              {l.label}
+            </a>
+          ) : (
+            <a href={l.href} class="block border border-white/30 rounded-full py-3 px-6 text-sm hover:bg-white/10 transition">
+              {l.label}
+            </a>
+          )
         ))}
       </div>
     </div>
