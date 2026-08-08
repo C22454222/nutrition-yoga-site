@@ -5,6 +5,15 @@ const {
   title = 'Leah Kanellos - Registered Nutritionist & Yoga Instructor',
   description = 'Transform your health from the inside out. Personalised nutrition coaching and yoga with Leah Kanellos.'
 } = Astro.props;
+
+const navLinks = [
+  { label: 'About', href: '/about' },
+  { label: 'Nutrition', href: '/nutrition' },
+  { label: 'Yoga', href: '/yoga' },
+  { label: 'Services', href: '/services' },
+  { label: 'Reviews', href: '/reviews' },
+  { label: 'Contact', href: '/contact' },
+];
 ---
 <!doctype html>
 <html lang="en">
@@ -16,20 +25,33 @@ const {
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 </head>
 <body>
-  <header class="border-b border-white/15 sticky top-0 bg-terra-500/95 backdrop-blur-sm z-50">
-    <nav class="max-w-6xl mx-auto flex items-center justify-between px-6 py-5">
-      <a href="/" class="text-2xl md:text-[1.7rem] tracking-wide font-display text-white">
+  <header class="sticky top-0 z-50 border-b border-white/15 bg-terra-600/90 backdrop-blur-md">
+    <nav class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+      <a href="/" class="flex items-center gap-2 font-display text-xl md:text-[1.6rem] tracking-wide">
+        <span class="w-2 h-2 rounded-full bg-white/80"></span>
         Leah Kanellos
       </a>
-      <div class="hidden md:flex gap-7 text-sm tracking-wide uppercase">
-        <a href="/about" class="hover:opacity-70 transition">About</a>
-        <a href="/nutrition" class="hover:opacity-70 transition">Nutrition</a>
-        <a href="/yoga" class="hover:opacity-70 transition">Yoga</a>
-        <a href="/services" class="hover:opacity-70 transition">Services</a>
-        <a href="/reviews" class="hover:opacity-70 transition">Reviews</a>
-        <a href="/contact" class="hover:opacity-70 transition">Contact</a>
+
+      <div class="hidden md:flex items-center gap-8 text-sm tracking-wide uppercase">
+        {navLinks.map((link) => (
+          <a href={link.href} class="nav-link hover:opacity-80 transition">{link.label}</a>
+        ))}
       </div>
-      <a href="/contact" class="md:hidden text-sm uppercase tracking-wide underline">Menu</a>
+
+      <input type="checkbox" id="nav-toggle" class="peer hidden" />
+      <label for="nav-toggle" class="md:hidden cursor-pointer p-2 -mr-2" aria-label="Menu">
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </label>
+
+      <div class="hidden peer-checked:flex md:hidden flex-col absolute top-full left-0 right-0 bg-terra-600 border-t border-white/15 px-6 py-5 gap-4 text-sm uppercase tracking-wide">
+        {navLinks.map((link) => (
+          <a href={link.href} class="hover:opacity-80 transition">{link.label}</a>
+        ))}
+      </div>
     </nav>
   </header>
 
@@ -38,17 +60,28 @@ const {
   </main>
 
   <footer class="border-t border-white/15 mt-24">
-    <div class="max-w-6xl mx-auto px-6 py-14 grid md:grid-cols-3 gap-10 text-sm">
-      <div>
+    <div class="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-10 text-sm">
+      <div class="md:col-span-2">
         <p class="font-display text-xl mb-3">Leah Kanellos</p>
-        <p class="text-white/75 leading-relaxed mb-4">
-          Registered Nutritionist & Yoga Instructor.<br />
-          Evidence-based nutrition, meets calm, mindful movement.
+        <p class="text-white/75 leading-relaxed mb-6 max-w-sm">
+          Registered Nutritionist & Yoga Instructor, helping you build calm, sustainable
+          habits around food and movement.
         </p>
         <div class="flex items-center gap-4">
-          <img src="/images/ryt-500.jpeg" alt="RYT 500 Registered Yoga Teacher, Yoga Alliance" class="w-14 h-14 rounded-full bg-white p-0.5" />
-          <img src="/images/anutr.png" alt="AfN ANutr Registered Associate Nutritionist" class="h-11 bg-white rounded p-1.5" />
+          <img src="/images/ryt-500.jpeg" alt="RYT 500 Registered Yoga Teacher, Yoga Alliance" class="w-12 h-12 rounded-full bg-white p-0.5" />
+          <img src="/images/anutr.png" alt="AfN ANutr Registered Associate Nutritionist" class="h-10 bg-white rounded p-1.5" />
         </div>
+      </div>
+
+      <div>
+        <p class="uppercase tracking-wide text-white/60 mb-3">Explore</p>
+        <ul class="space-y-2 text-white/85">
+          <li><a href="/nutrition" class="hover:opacity-70 transition">Nutrition</a></li>
+          <li><a href="/yoga" class="hover:opacity-70 transition">Yoga</a></li>
+          <li><a href="/services" class="hover:opacity-70 transition">Services</a></li>
+          <li><a href="/reviews" class="hover:opacity-70 transition">Reviews</a></li>
+          <li><a href="/links" class="hover:opacity-70 transition">Link-in-bio</a></li>
+        </ul>
       </div>
 
       <div>
@@ -57,21 +90,15 @@ const {
           <li>
             <a href="https://mail.google.com/mail/?view=cm&fs=1&to=leahkanellos10@gmail.com" target="_blank" rel="noopener" class="hover:opacity-70 transition flex items-center gap-2">
               <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
-              leahkanellos10@gmail.com
+              Email
             </a>
           </li>
           <li>
             <a href="https://wa.me/447883125933" target="_blank" rel="noopener" class="hover:opacity-70 transition flex items-center gap-2">
               <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.3a8.9 8.9 0 0 0-14.1 10.7L2 22l5.1-1.4A8.9 8.9 0 0 0 20.9 12a8.8 8.8 0 0 0-3.3-5.7Zm-5.6 13.6a7.4 7.4 0 0 1-3.8-1l-.3-.2-2.8.8.8-2.7-.2-.3a7.4 7.4 0 1 1 6.3 3.4Zm4-5.5c-.2-.1-1.3-.7-1.5-.7-.2-.1-.4-.1-.5.1-.2.2-.6.7-.7.9-.1.1-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.6c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.5 3.9 3.5.5.2 1 .4 1.3.5.5.2 1 .1 1.4.1.4-.1 1.3-.5 1.5-1 .2-.5.2-.9.1-1l-.4-.2Z"/></svg>
-              WhatsApp: +44 7883 125933
+              WhatsApp
             </a>
           </li>
-        </ul>
-      </div>
-
-      <div>
-        <p class="uppercase tracking-wide text-white/60 mb-3">Follow</p>
-        <ul class="space-y-2 text-white/85">
           <li>
             <a href="https://www.instagram.com/leahkanellos" target="_blank" rel="noopener" class="hover:opacity-70 transition flex items-center gap-2">
               <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
@@ -84,7 +111,6 @@ const {
               LinkedIn
             </a>
           </li>
-          <li><a href="/links" class="hover:opacity-70 transition">Link-in-bio page</a></li>
         </ul>
       </div>
     </div>

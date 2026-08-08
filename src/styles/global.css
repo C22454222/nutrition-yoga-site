@@ -5,7 +5,10 @@
 @tailwind utilities;
 
 body {
-  @apply bg-terra-500 text-white font-body antialiased;
+  @apply text-white font-body antialiased;
+  background: radial-gradient(ellipse 120% 70% at 50% -10%, #c97a45 0%, #B45B29 45%, #7e3e1c 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
 }
 
 h1, h2, h3 {
@@ -14,4 +17,26 @@ h1, h2, h3 {
 
 ::selection {
   background: rgba(255, 255, 255, 0.25);
+}
+
+/* underline-on-hover nav links */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
 }
