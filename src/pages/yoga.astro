@@ -8,7 +8,7 @@ const offerings = [
 ];
 ---
 <Layout title="Yoga">
-  <section class="max-w-5xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-14 items-center">
+  <section class="max-w-5xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-14 items-center">
     <div class="aspect-[4/5] rounded-2xl border border-white/25 flex items-center justify-center text-white/50 text-sm uppercase tracking-wide">
       Yoga teaching
     </div>
@@ -23,13 +23,13 @@ const offerings = [
   </section>
 
   <section class="bg-white text-terra-500">
-    <div class="max-w-5xl mx-auto px-6 py-20">
+    <div class="max-w-5xl mx-auto px-6 py-16">
       <h2 class="text-3xl text-center mb-14">Yoga Offerings</h2>
       <div class="grid md:grid-cols-3 gap-8">
         {offerings.map((o) => (
-          <div class="border border-terra-500/25 rounded-2xl p-8 text-center">
-            <h3 class="text-xl mb-3">{o.title}</h3>
-            <p class="text-terra-500/85 text-sm leading-relaxed">{o.desc}</p>
+          <div class="border border-terra-500/40 rounded-2xl p-8 text-center">
+            <h3 class="text-xl mb-3 font-semibold">{o.title}</h3>
+            <p class="text-terra-500 text-sm leading-relaxed">{o.desc}</p>
           </div>
         ))}
       </div>
@@ -37,7 +37,7 @@ const offerings = [
   </section>
 
   <section class="border-t border-white/15">
-    <div class="max-w-3xl mx-auto px-6 py-20 text-center">
+    <div class="max-w-3xl mx-auto px-6 py-16 text-center">
       <h2 class="text-3xl mb-6">Join a class or book privately</h2>
       <a href="/contact" class="inline-block bg-white text-terra-500 px-7 py-3 rounded-full hover:bg-white/90 transition font-medium">
         Get In Touch

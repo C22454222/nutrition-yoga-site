@@ -8,7 +8,7 @@ const approaches = [
 ];
 ---
 <Layout title="Nutrition">
-  <section class="max-w-5xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-14 items-center">
+  <section class="max-w-5xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-14 items-center">
     <div>
       <p class="uppercase tracking-[0.25em] text-sm text-white/60 mb-4">Nutrition</p>
       <h1 class="text-4xl mb-6">Nutrition coaching that fits your life</h1>
@@ -24,13 +24,13 @@ const approaches = [
   </section>
 
   <section class="bg-white text-terra-500">
-    <div class="max-w-5xl mx-auto px-6 py-20">
+    <div class="max-w-5xl mx-auto px-6 py-16">
       <h2 class="text-3xl text-center mb-14">My Approach</h2>
       <div class="grid md:grid-cols-3 gap-8">
         {approaches.map((a) => (
-          <div class="text-center">
-            <h3 class="text-xl mb-3">{a.title}</h3>
-            <p class="text-terra-500/85 text-sm leading-relaxed">{a.desc}</p>
+          <div class="border border-terra-500/40 rounded-2xl p-8 text-center">
+            <h3 class="text-xl mb-3 font-semibold">{a.title}</h3>
+            <p class="text-terra-500 text-sm leading-relaxed">{a.desc}</p>
           </div>
         ))}
       </div>
@@ -38,7 +38,7 @@ const approaches = [
   </section>
 
   <section class="border-t border-white/15">
-    <div class="max-w-3xl mx-auto px-6 py-20 text-center">
+    <div class="max-w-3xl mx-auto px-6 py-16 text-center">
       <h2 class="text-3xl mb-6">Ready to get started?</h2>
       <p class="text-white/85 mb-8">
         Book a free 15-minute discovery call, with no commitment, just a chat.
