@@ -5,33 +5,27 @@ const services = [
   {
     name: 'Free Discovery Call',
     duration: '15 minutes',
-    price: 'Free',
-    desc: 'A relaxed, no-pressure chat to see if we\'re a good fit and talk through your goals.',
+    desc: "A relaxed, no-pressure chat to see if we're a good fit and talk through your goals.",
   },
   {
     name: 'Initial Coaching Session',
-    duration: '60 minutes',
-    price: 'Price TBC',
     desc: 'An in-depth first session covering your history, goals, and a personalised starting plan.',
   },
   {
     name: 'Follow-up Coaching Session',
-    duration: '45 minutes',
-    price: 'Price TBC',
     desc: 'Ongoing sessions to review progress, adjust your plan, and keep momentum going.',
   },
   {
     name: 'Accountability / Check-in Call',
-    duration: '20 minutes',
-    price: 'Price TBC',
     desc: 'A shorter check-in between full sessions to stay on track and troubleshoot.',
   },
 ];
 ---
+
 <Layout title="Services">
   <section class="max-w-3xl mx-auto px-6 pt-24 pb-14 text-center">
     <p class="uppercase tracking-[0.25em] text-sm text-white/60 mb-4">Coaching</p>
-    <h1 class="text-4xl mb-6">Services &amp; Pricing</h1>
+    <h1 class="text-4xl mb-6">Services</h1>
     <p class="text-white/85">
       Simple, flexible coaching options. Start with a free call, with no obligation.
     </p>
@@ -44,12 +38,16 @@ const services = [
           <div class="border border-terra-500/25 rounded-2xl p-8">
             <div class="flex items-baseline justify-between mb-2">
               <h3 class="text-xl">{s.name}</h3>
-              <span class="text-terra-500/70 text-sm">{s.duration}</span>
+              {s.duration && (
+                <span class="text-terra-500/70 text-sm">{s.duration}</span>
+              )}
             </div>
             <p class="text-terra-500/85 text-sm leading-relaxed mb-4">{s.desc}</p>
             <div class="flex items-center justify-between">
-              <span class="text-lg font-display">{s.price}</span>
-              <a href="/contact" class="text-sm underline hover:opacity-70 transition">Book now</a>
+              <span class="text-sm text-terra-500/70">Pricing available on request</span>
+              <a href="/contact" class="text-sm underline hover:opacity-70 transition">
+                Book now
+              </a>
             </div>
           </div>
         ))}
