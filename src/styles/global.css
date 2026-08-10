@@ -4,104 +4,16 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --burnt-orange: #B45B29;
-  --burnt-orange-rgb: 180, 91, 41;
-  --cream: #F7F1E8;
-  --soft-cream: #FBF7F2;
-  --text-dark: #5F3A25;
-  --text-light: #FFFFFF;
-  --border-soft: rgba(180, 91, 41, 0.18);
-  --shadow-soft: 0 10px 30px rgba(180, 91, 41, 0.08);
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
 body {
-  @apply bg-[var(--cream)] text-[var(--text-dark)] font-body antialiased;
+  @apply bg-terra-500 text-white font-body antialiased;
 }
 
-h1,
-h2,
-h3 {
-  @apply font-display text-[var(--text-dark)];
-}
-
-p,
-li,
-span,
-a {
-  @apply text-[var(--text-dark)];
+h1, h2, h3 {
+  @apply font-display text-white;
 }
 
 ::selection {
-  background: rgba(180, 91, 41, 0.18);
-}
-
-.dark-section,
-.hero-section,
-.footer-section,
-.navbar-dark {
-  background: var(--burnt-orange);
-  color: var(--text-light);
-}
-
-.dark-section h1,
-.dark-section h2,
-.dark-section h3,
-.hero-section h1,
-.hero-section h2,
-.hero-section h3,
-.footer-section h1,
-.footer-section h2,
-.footer-section h3,
-.navbar-dark h1,
-.navbar-dark h2,
-.navbar-dark h3 {
-  color: var(--text-light);
-}
-
-.dark-section p,
-.dark-section li,
-.dark-section span,
-.dark-section a,
-.hero-section p,
-.hero-section li,
-.hero-section span,
-.hero-section a,
-.footer-section p,
-.footer-section li,
-.footer-section span,
-.footer-section a,
-.navbar-dark p,
-.navbar-dark li,
-.navbar-dark span,
-.navbar-dark a {
-  color: rgba(255, 255, 255, 0.92);
-}
-
-.card-light {
-  background: var(--soft-cream);
-  border: 1px solid var(--border-soft);
-  box-shadow: var(--shadow-soft);
-}
-
-.card-dark {
-  background: var(--burnt-orange);
-  color: var(--text-light);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: var(--shadow-soft);
-}
-
-.card-dark h1,
-.card-dark h2,
-.card-dark h3,
-.card-dark p,
-.card-dark a,
-.card-dark span {
-  color: var(--text-light);
+  background: rgba(255, 255, 255, 0.25);
 }
 
 /* underline-on-hover nav links */
