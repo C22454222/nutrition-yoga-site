@@ -4,7 +4,7 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="About">
   <section
-    class="max-w-5xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-14 items-center"
+    class="max-w-6xl mx-auto px-6 py-24 grid md:grid-cols-3 gap-10 items-center"
   >
     <div
       class="order-2 md:order-1 w-full max-w-md mx-auto rounded-2xl border border-white/25 overflow-hidden"
@@ -16,7 +16,7 @@ import Layout from '../layouts/Layout.astro';
       />
     </div>
 
-    <div class="order-1 md:order-2">
+    <div class="order-1 md:order-2 text-center md:text-left">
       <p class="uppercase tracking-[0.25em] text-sm text-white/60 mb-4">
         About Me
       </p>
@@ -29,6 +29,16 @@ import Layout from '../layouts/Layout.astro';
         nutrition with mindful movement. There are no fads, no extremes, just
         what actually works for your body and your life.
       </p>
+    </div>
+
+    <div
+      class="order-3 w-full max-w-md mx-auto rounded-2xl border border-white/25 overflow-hidden"
+    >
+      <img
+        src="/images/yoga17.jpeg"
+        alt="Leah practicing yoga"
+        class="block w-full h-auto"
+      />
     </div>
   </section>
 
