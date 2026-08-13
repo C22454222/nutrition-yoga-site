@@ -25,21 +25,21 @@ const navLinks = [
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 </head>
 <body>
-  <header class="sticky top-0 z-50 border-b border-white/15 bg-terra-500/90 backdrop-blur-md">
+  <header class="sticky top-0 z-50 border-b border-terra-500/15 bg-white/90 backdrop-blur-md">
     <nav class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
-      <a href="/" class="flex items-center gap-2 font-display text-xl md:text-[1.6rem] tracking-wide text-white">
-        <span class="w-2 h-2 rounded-full bg-white/80"></span>
+      <a href="/" class="flex items-center gap-2 font-display text-xl md:text-[1.6rem] tracking-wide text-terra-500">
+        <span class="w-2 h-2 rounded-full bg-terra-500/80"></span>
         Leah Kanellos
       </a>
 
-      <div class="hidden md:flex items-center gap-8 text-sm tracking-wide uppercase text-white">
+      <div class="hidden md:flex items-center gap-8 text-sm tracking-wide uppercase text-terra-500">
         {navLinks.map((link) => (
           <a href={link.href} class="nav-link hover:opacity-80 transition">{link.label}</a>
         ))}
       </div>
 
       <input type="checkbox" id="nav-toggle" class="peer hidden" />
-      <label for="nav-toggle" class="md:hidden cursor-pointer p-2 -mr-2 text-white" aria-label="Menu">
+      <label for="nav-toggle" class="md:hidden cursor-pointer p-2 -mr-2 text-terra-500" aria-label="Menu">
         <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
           <line x1="3" y1="6" x2="21" y2="6" />
           <line x1="3" y1="12" x2="21" y2="12" />
@@ -47,7 +47,7 @@ const navLinks = [
         </svg>
       </label>
 
-      <div class="hidden peer-checked:flex md:hidden flex-col absolute top-full left-0 right-0 bg-terra-500 border-t border-white/15 px-6 py-5 gap-4 text-sm uppercase tracking-wide text-white">
+      <div class="hidden peer-checked:flex md:hidden flex-col absolute top-full left-0 right-0 bg-white border-t border-terra-500/15 px-6 py-5 gap-4 text-sm uppercase tracking-wide text-terra-500">
         {navLinks.map((link) => (
           <a href={link.href} class="hover:opacity-80 transition">{link.label}</a>
         ))}
