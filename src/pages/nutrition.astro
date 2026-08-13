@@ -2,9 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 
 const approaches = [
-  { title: 'Personalised', desc: 'Plans built around your body, preferences, and schedule, not a generic template.' },
-  { title: 'Evidence-based', desc: 'Guidance grounded in current nutrition science, not trends or fads.' },
-  { title: 'Sustainable', desc: 'Habits designed to actually stick, long after coaching ends.' },
+  { title: 'Personalised', desc: 'Plans built around your body, preferences, and schedule, not a generic template.', img: '/images/nut4.jpeg' },
+  { title: 'Evidence-based', desc: 'Guidance grounded in current nutrition science, not trends or fads.', img: '/images/nut8.jpeg' },
+  { title: 'Sustainable', desc: 'Habits designed to actually stick, long after coaching ends.', img: '/images/nut10.jpeg' },
 ];
 ---
 <Layout title="Nutrition">
@@ -29,24 +29,13 @@ const approaches = [
       <div class="grid md:grid-cols-3 gap-8">
         {approaches.map((a) => (
           <div class="border border-terra-500/40 rounded-2xl p-8 text-center">
+            <div class="aspect-square rounded-xl overflow-hidden mb-6">
+              <img src={a.img} alt={a.title} class="w-full h-full object-cover" />
+            </div>
             <h3 class="text-xl mb-3 font-semibold">{a.title}</h3>
             <p class="text-terra-500 text-sm leading-relaxed">{a.desc}</p>
           </div>
         ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="border-t border-white/15">
-    <div class="max-w-5xl mx-auto px-6 py-16 grid md:grid-cols-3 gap-6">
-      <div class="aspect-square rounded-2xl border border-white/25 overflow-hidden">
-        <img src="/images/nut4.jpeg" alt="Nutrition coaching with Leah" class="w-full h-full object-cover" />
-      </div>
-      <div class="aspect-square rounded-2xl border border-white/25 overflow-hidden">
-        <img src="/images/nut8.jpeg" alt="Nutrition coaching with Leah" class="w-full h-full object-cover" />
-      </div>
-      <div class="aspect-square rounded-2xl border border-white/25 overflow-hidden">
-        <img src="/images/nut10.jpeg" alt="Nutrition coaching with Leah" class="w-full h-full object-cover" />
       </div>
     </div>
   </section>

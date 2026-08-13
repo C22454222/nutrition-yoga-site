@@ -2,18 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 
 const offerings = [
-  {
-    title: '1:1 Yoga',
-    desc: 'Private sessions tailored entirely to your body, goals, and experience level, in person or online.',
-  },
-  {
-    title: 'Group Classes',
-    desc: 'Small, welcoming group sessions. All levels welcome, no experience necessary.',
-  },
-  {
-    title: 'Group / Studio Hire',
-    desc: 'Book a private group session for friends, colleagues, or a special occasion.',
-  },
+  { title: '1:1 Yoga', desc: 'Private sessions tailored entirely to your body, goals, and experience level, in person or online.', img: '/images/yoga8.jpeg' },
+  { title: 'Group Classes', desc: 'Small, welcoming group sessions. All levels welcome, no experience necessary.', img: '/images/yoga20.jpeg' },
+  { title: 'Group / Studio Hire', desc: 'Book a private group session for friends, colleagues, or a special occasion.', img: '/images/yoga32.jpeg' },
 ];
 ---
 
@@ -38,24 +29,13 @@ const offerings = [
       <div class="grid md:grid-cols-3 gap-8">
         {offerings.map((o) => (
           <div class="border border-terra-500/40 rounded-2xl p-8 text-center">
+            <div class="aspect-square rounded-xl overflow-hidden mb-6">
+              <img src={o.img} alt={o.title} class="w-full h-full object-cover" />
+            </div>
             <h3 class="text-xl mb-3 font-semibold">{o.title}</h3>
             <p class="text-terra-500 text-sm leading-relaxed">{o.desc}</p>
           </div>
         ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="border-t border-white/15">
-    <div class="max-w-5xl mx-auto px-6 py-16 grid md:grid-cols-3 gap-6">
-      <div class="rounded-2xl border border-white/25 overflow-hidden">
-        <img src="/images/yoga8.jpeg" alt="Leah practicing yoga" class="block w-full h-auto" />
-      </div>
-      <div class="rounded-2xl border border-white/25 overflow-hidden">
-        <img src="/images/yoga20.jpeg" alt="Leah practicing yoga" class="block w-full h-auto" />
-      </div>
-      <div class="rounded-2xl border border-white/25 overflow-hidden">
-        <img src="/images/yoga32.jpeg" alt="Leah practicing yoga" class="block w-full h-auto" />
       </div>
     </div>
   </section>
