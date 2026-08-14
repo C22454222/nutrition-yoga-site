@@ -23,7 +23,7 @@ export default {
         },
       },
       fontFamily: {
-        display: ['"Fraunces"', 'serif'],
+        display: ['"Playfair Display"', 'serif'],
         body: ['"Inter"', 'sans-serif'],
       },
     },
