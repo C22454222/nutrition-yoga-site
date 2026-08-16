@@ -118,5 +118,32 @@ const navLinks = [
       <p>&copy; {new Date().getFullYear()} Leah Kanellos. Registered Associate Nutritionist. All rights reserved.</p>
     </div>
   </footer>
+
+  <script>
+    // Email links: try the device's mail app first. If nothing opens
+    // within a moment (no default mail app configured), fall back to
+    // Gmail's web compose in a new tab, so clicking always does
+    // something visible in a browser.
+    document.querySelectorAll('a[href^="mailto:"]').forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const address = link.getAttribute('href').replace('mailto:', '').split('?')[0];
+        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${address}`;
+
+        let handedOff = false;
+        const markHandedOff = () => { handedOff = true; };
+        window.addEventListener('blur', markHandedOff, { once: true });
+
+        window.location.href = link.getAttribute('href');
+
+        setTimeout(() => {
+          window.removeEventListener('blur', markHandedOff);
+          if (!handedOff && !document.hidden) {
+            window.open(gmailUrl, '_blank', 'noopener');
+          }
+        }, 600);
+      });
+    });
+  </script>
 </body>
 </html>
