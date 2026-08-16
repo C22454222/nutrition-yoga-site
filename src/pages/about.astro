@@ -3,27 +3,37 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="About">
-  <section
-    class="max-w-6xl mx-auto px-6 py-24 grid md:grid-cols-3 gap-10 items-start"
-  >
-    <div
-      class="order-2 md:order-1 aspect-[1125/1962] rounded-2xl border border-white/25 overflow-hidden"
-    >
-      <img
-        src="/images/gen1.jpeg"
-        alt="Leah smiling in her kitchen"
-        class="w-full h-full object-cover"
-      />
+  <section class="max-w-6xl mx-auto px-6 py-24">
+    <div class="grid sm:grid-cols-2 gap-10 mb-10">
+      <div
+        class="aspect-[1125/1962] rounded-2xl border border-white/25 overflow-hidden"
+      >
+        <img
+          src="/images/gen1.jpeg"
+          alt="Leah smiling in her kitchen"
+          class="w-full h-full object-cover"
+        />
+      </div>
+
+      <div
+        class="aspect-[1125/1962] rounded-2xl border border-white/25 overflow-hidden"
+      >
+        <img
+          src="/images/yoga17.jpeg"
+          alt="Leah practicing yoga"
+          class="w-full h-full object-cover"
+        />
+      </div>
     </div>
 
-    <div class="order-1 md:order-2 rounded-2xl border border-white/40 p-8 flex flex-col justify-center text-center md:text-left">
+    <div class="rounded-2xl border border-white/40 p-8 md:p-14 text-center md:text-left">
       <p class="uppercase tracking-[0.25em] text-sm text-white/60 mb-4">
         About Me
       </p>
 
       <h1 class="text-4xl mb-6">Hi, I'm Leah</h1>
 
-      <div class="text-white/85 leading-relaxed space-y-4">
+      <div class="text-white/85 leading-relaxed space-y-4 md:columns-2 md:gap-10">
         <p>
           a Registered Associate Nutritionist and RYT-500 Yoga Instructor, passionate about helping people build healthier, more sustainable habits around food, movement and everyday wellbeing.
         </p>
@@ -52,16 +62,6 @@ import Layout from '../layouts/Layout.astro';
           Nutrition • Yoga • Behaviour Change • Motivational Interviewing • Mindful Movement
         </p>
       </div>
-    </div>
-
-    <div
-      class="order-3 aspect-[4/5] rounded-2xl border border-white/25 overflow-hidden"
-    >
-      <img
-        src="/images/yoga17.jpeg"
-        alt="Leah practicing yoga"
-        class="w-full h-full object-cover"
-      />
     </div>
   </section>
 
