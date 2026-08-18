@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
+const WEB3FORMS_ACCESS_KEY = "b1dec726-cbf5-4a4b-a49c-82e2251eb72e";
+
 const reviews = [
   { name: 'Client Name', rating: 5, text: 'Placeholder testimonial: replace with a real review.' },
   { name: 'Client Name', rating: 5, text: 'Placeholder testimonial: replace with a real review.' },
@@ -13,7 +15,7 @@ const reviews = [
     <p class="uppercase tracking-[0.25em] text-sm text-white/60 mb-4">Reviews</p>
     <h1 class="text-4xl mb-6">Share Your Experience</h1>
     <p class="text-white/85">
-      Leave a review, and once it’s checked, it can be published on this page.
+      Leave a review, and once it's checked, it can be published on this page.
     </p>
   </section>
 
@@ -22,15 +24,15 @@ const reviews = [
     <div class="max-w-xl mx-auto px-6 py-20">
       <h2 class="text-2xl mb-3 text-center">Leave a Review</h2>
       <p class="text-white/70 text-sm text-center mb-8">
-        Submitted reviews are checked before they’re published.
+        Submitted reviews are checked before they're published.
       </p>
 
-      <!-- formspree - swap YOUR_FORM_ID once the form's set up -->
-      <form
-        action="https://formspree.io/f/YOUR_FORM_ID"
-        method="POST"
-        class="space-y-4"
-      >
+      <form id="review-form" class="space-y-4">
+        <input type="hidden" name="access_key" value={WEB3FORMS_ACCESS_KEY} />
+        <input type="hidden" name="subject" value="New review submitted on website" />
+        <input type="hidden" name="from_name" value="Leah's Website Reviews" />
+        <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" />
+
         <input
           type="text"
           name="name"
@@ -51,7 +53,7 @@ const reviews = [
           <option value="1" class="text-terra-500">★</option>
         </select>
         <textarea
-          name="review"
+          name="message"
           placeholder="Your review"
           rows="5"
           required
@@ -63,6 +65,7 @@ const reviews = [
         >
           Submit Review
         </button>
+        <p id="review-status" role="status" class="text-sm text-center min-h-[1.2rem]"></p>
       </form>
     </div>
   </section>
@@ -88,3 +91,42 @@ const reviews = [
     </div>
   </section>
 </Layout>
+
+<script>
+  const form = document.getElementById('review-form') as HTMLFormElement;
+  const status = document.getElementById('review-status') as HTMLParagraphElement;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+    submitBtn.disabled = true;
+    status.textContent = 'Sending…';
+
+    const formData = new FormData(form);
+    const object: Record<string, string> = {};
+    formData.forEach((value, key) => { object[key] = value.toString(); });
+    const json = JSON.stringify(object);
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: json,
+      });
+      const result = await res.json();
+
+      if (result.success) {
+        status.textContent = 'Thanks! Your review has been submitted for approval.';
+        form.reset();
+      } else {
+        status.textContent = 'Something went wrong. Please try again.';
+        console.error(result);
+      }
+    } catch (err) {
+      status.textContent = 'Network error. Please try again.';
+      console.error(err);
+    } finally {
+      submitBtn.disabled = false;
+    }
+  });
+</script>

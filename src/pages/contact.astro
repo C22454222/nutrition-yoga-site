@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const WEB3FORMS_ACCESS_KEY = "b1dec726-cbf5-4a4b-a49c-82e2251eb72e";
 ---
 <Layout title="Contact">
   <section class="max-w-3xl mx-auto px-6 pt-24 pb-14 text-center">
@@ -42,8 +44,12 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <div>
-        <!-- formspree - swap YOUR_FORM_ID once the form's set up -->
-        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-4">
+        <form id="contact-form" class="space-y-4">
+          <input type="hidden" name="access_key" value={WEB3FORMS_ACCESS_KEY} />
+          <input type="hidden" name="subject" value="New message from website contact form" />
+          <input type="hidden" name="from_name" value="Leah's Website" />
+          <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" />
+
           <input type="text" name="name" placeholder="Your name" required
             class="w-full border border-terra-500/25 rounded-lg px-4 py-2 text-terra-500 placeholder-terra-500/40" />
           <input type="email" name="email" placeholder="Your email" required
@@ -54,8 +60,48 @@ import Layout from '../layouts/Layout.astro';
             class="w-full bg-terra-500 text-white py-2 rounded-full hover:bg-terra-500/90 transition font-medium">
             Send Message
           </button>
+          <p id="form-status" role="status" class="text-sm text-center min-h-[1.2rem]"></p>
         </form>
       </div>
     </div>
   </section>
 </Layout>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const status = document.getElementById('form-status') as HTMLParagraphElement;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+    submitBtn.disabled = true;
+    status.textContent = 'Sending…';
+
+    const formData = new FormData(form);
+    const object: Record<string, string> = {};
+    formData.forEach((value, key) => { object[key] = value.toString(); });
+    const json = JSON.stringify(object);
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: json,
+      });
+      const result = await res.json();
+
+      if (result.success) {
+        status.textContent = 'Thanks! Your message has been sent.';
+        form.reset();
+      } else {
+        status.textContent = 'Something went wrong. Please try again.';
+        console.error(result);
+      }
+    } catch (err) {
+      status.textContent = 'Network error. Please try again.';
+      console.error(err);
+    } finally {
+      submitBtn.disabled = false;
+    }
+  });
+</script>
