@@ -2,12 +2,11 @@
 import Layout from '../layouts/Layout.astro';
 
 const links = [
-  { label: 'Book a Yoga Class', href: '/yoga' },
+  { label: 'Practice Yoga With Me', href: '/yoga' },
   { label: 'Nutrition Coaching', href: '/nutrition' },
-  { label: '1:1 Coaching', href: '/services' },
-  { label: 'Group Programmes', href: '/yoga' },
+  { label: '1:1', href: '/services' },
   { label: 'Book a Discovery Call', href: '/services' },
-  { label: 'My Website', href: '/' },
+  { label: 'Explore My Website', href: '/' },
 ].map((l) => ({
   ...l,
   isExternal: l.href.startsWith('http'),
